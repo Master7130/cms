@@ -1,21 +1,22 @@
-"use client";
-
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import Signin from "@/components/Signin";
 import Navbar from "@/components/Navbar";
+import Models from "@/components/Models";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
-export default function Home() {
-  const { data: session, status } = useSession();
-  console.log(status);
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+  console.log(session)
 
-  if (status === "loading") return <div>Loading</div>
-
-  if (status !== "authenticated") {
+  if (!session) {
     return <Signin />;
   } else {
     return (
       <div className="">
-        <div className="flex justify-center py-8"><Navbar /></div>
+        <div className="flex justify-center py-8">
+          <Navbar />
+        </div>
+        <Models />
       </div>
     );
   }
