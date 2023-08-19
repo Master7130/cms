@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import CognitoProvider from "next-auth/providers/cognito";
 
-const handler = NextAuth({
+export const authOptions = {
   providers: [
     CognitoProvider({
       clientId: process.env.COGNITO_CLIENT_ID || "",
@@ -9,7 +9,9 @@ const handler = NextAuth({
       issuer: process.env.COGNITO_ISSUER,
     }),
   ],
-  secret: "ahiwefliuwehfialehwui"
-});
+  secret: "ahiwefliuwehfialehwui",
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
