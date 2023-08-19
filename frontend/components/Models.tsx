@@ -1,6 +1,7 @@
 import { AppSync } from "@aws-sdk/client-appsync";
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import ModelCard from "./ModelCard";
+import Link from "next/link";
 
 export default async function Models() {
   const models = await getModels();
@@ -11,7 +12,11 @@ export default async function Models() {
 
   return (
     <div className="flex flex-col justify-center items-center gap-y-9">
-      <button className="border-2 rounded-md p-3 w-fit">Create new model</button>
+      <Link href="/model/create">
+        <button className="border-2 rounded-md p-3 w-fit">
+          Create new model
+        </button>
+      </Link>
       <div className="flex flex-row">
         <div>
           {modelEntries.map(([model, att], key) => (
