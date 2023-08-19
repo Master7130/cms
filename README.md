@@ -23,5 +23,6 @@ Basic CMS created using Next.js and various AWS services
 - [x] Cognito Auth
 - [x] Create Model
 - [ ] Edit Model
+- [ ] Add data to models
 - [ ] Expose GraphQL API
 - [ ] Styling
