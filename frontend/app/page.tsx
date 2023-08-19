@@ -16,6 +16,7 @@ export default async function Home() {
         <div className="flex justify-center py-8">
           <Navbar />
         </div>
+        <div className="text-3xl">Models</div>
         <Models />
       </div>
     );

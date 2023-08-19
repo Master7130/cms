@@ -15,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen">
-        <NextAuthProvider>{children}</NextAuthProvider>
+        <NextAuthProvider>
+          <div className="px-8">{children}</div>
+        </NextAuthProvider>
       </body>
     </html>
   );
